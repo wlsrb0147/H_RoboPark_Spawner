@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalPosition.x
@@ -130,6 +130,7 @@ MonoBehaviour:
   - {fileID: 5729427428349159746}
   bodyMat: {fileID: -2188614011940931493, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
   faceMat: {fileID: 2383019478586239886, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
+  val: 150
 --- !u!136 &6131047888379803942
 CapsuleCollider:
   m_ObjectHideFlags: 0
