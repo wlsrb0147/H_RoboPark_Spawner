@@ -2623,7 +2623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainBgm: {fileID: 1643587534}
-  touch: {fileID: 401038174}
+  touch: {fileID: 0}
   down: {fileID: 265593171}
   up: {fileID: 1920536912}
 --- !u!1 &1550426265

@@ -15,7 +15,7 @@ public class SetMaterials : MonoBehaviour
     
     private Material _newMaterial;
 
-    private int _maxClick;
+    private const int MaxClick = 10;
 
     private int _currentClick;
     private int CurrentClick
@@ -24,7 +24,7 @@ public class SetMaterials : MonoBehaviour
         set
         {
             _currentClick =  value;
-            if (_currentClick >= _maxClick)
+            if (_currentClick >= MaxClick)
             {
                 _canClick = false;
             }
@@ -32,6 +32,7 @@ public class SetMaterials : MonoBehaviour
     }
     
     private bool _canClick = true;
+    private int _currentPosition;
 
     private bool CanClick
     {
@@ -109,6 +110,13 @@ public class SetMaterials : MonoBehaviour
         {
             Destroy(_newMaterial);
         }
+        
+        SpawnModel.Instance.AddPosition(_currentPosition);
+    }
+
+    public void SetPosition(int position)
+    {
+        _currentPosition = position;
     }
 
     public void Clicked()
@@ -119,11 +127,12 @@ public class SetMaterials : MonoBehaviour
             PlayScaleBounce().Forget();
             ++CurrentClick;
         }
-
     }
     
     private float scaleUpPercent = 1.5f;  // 150%
-    private float scaleDownPercent = 1.05f;  // 105%
+    private float scaleDownPercent = 1.1f;  // 105%
+    private Vector3 scaleUpPercentVector = Vector3.one * 0.04f * 0.5f;  // 50%
+    private Vector3 scaleDownPercentVector = Vector3.one * 0.04f * 0.1f;  // 10%
     private float scaleUpDuration = 0.3f;
     private float scaleDownDuration = 0.2f;
     private Ease scaleUpEase = Ease.OutQuad;
@@ -133,7 +142,8 @@ public class SetMaterials : MonoBehaviour
     private Vector3 _initialScale;
 
     [SerializeField] private int val = 150;
-    
+    [SerializeField] private float upTime = 3;
+
     private async UniTaskVoid PlayScaleBounce()
     {
         _canClick = false;
@@ -146,8 +156,18 @@ public class SetMaterials : MonoBehaviour
             .SetEase(scaleUpEase)
             .OnComplete(() =>
             {
-                transform.DOScale(_initialScale * scaleDownPercent, scaleDownDuration)
-                    .SetEase(scaleDownEase).OnComplete(() => _canClick = true);
+                transform.DOScale(_initialScale + scaleDownPercentVector, scaleDownDuration)
+                    .SetEase(scaleDownEase).OnComplete(() =>
+                    {
+                        if (CurrentClick < MaxClick)
+                        {
+                          _canClick = true;
+                        }
+                        else
+                        {
+                          transform.DOMoveY(7,upTime).OnComplete(() => Destroy(gameObject));
+                        }
+                    });
             });
     }
 }
