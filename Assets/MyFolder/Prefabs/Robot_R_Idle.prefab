@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82,6 +82,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8763405551284120004}
   m_SourcePrefab: {fileID: 100100000, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
+--- !u!4 &449463369041464291 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6799767003641301245, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
+  m_PrefabInstance: {fileID: 2854876866409266400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &497647672143141547 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2412082811472815691, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
@@ -132,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   face: {fileID: 3783354558687041986}
+  head: {fileID: 449463369041464291}
   meshRenderers:
   - {fileID: 497647672143141547}
   - {fileID: 3078600233002442691}
@@ -141,6 +147,7 @@ MonoBehaviour:
   bodyMat: {fileID: 4269051890136307289, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
   faceMat: {fileID: -7048181326821292312, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}
   val: 150
+  upTime: 3
 --- !u!136 &8763405551284120004
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -160,10 +167,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 13.079332
-  m_Height: 43.022903
+  m_Radius: 20.372017
+  m_Height: 51.712112
   m_Direction: 1
-  m_Center: {x: 0.20487666, y: 21.01145, z: 0}
+  m_Center: {x: 0, y: 21.114935, z: 0}
 --- !u!137 &3259858861207861609 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 766693026024768905, guid: 36e99e5ec622807468c52bbca9b249b9, type: 3}

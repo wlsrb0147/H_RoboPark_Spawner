@@ -1,3 +1,4 @@
 {
-  "url" : "http://175.118.126.63/www_robopark/listImage.cfm"
+  "url" : "http://175.118.126.63/www_robopark/listImage.cfm",
+  "disappearTime" : 60
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Settings
 {
     public string url;
+    public float disappearTime;
 }
 
 public class JsonSaver : MonoBehaviour

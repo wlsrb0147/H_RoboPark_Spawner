@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   face: {fileID: 6692292067590608372}
+  head: {fileID: 7565443440244021550}
   meshRenderers:
   - {fileID: 4602579209431320223}
   - {fileID: 8255204251109112713}
@@ -131,6 +132,7 @@ MonoBehaviour:
   bodyMat: {fileID: 7229536606682226628, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
   faceMat: {fileID: -934256264639744168, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
   val: 150
+  upTime: 3
 --- !u!136 &2323703617236739811
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -150,10 +152,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 16.920399
-  m_Height: 56.483902
+  m_Radius: 30.282578
+  m_Height: 68.36646
   m_Direction: 1
-  m_Center: {x: -0.42729616, y: 24.12896, z: -0}
+  m_Center: {x: 0, y: 25.691137, z: 0}
 --- !u!137 &4602579209431320223 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 715764074113362050, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
@@ -177,6 +179,11 @@ SkinnedMeshRenderer:
 --- !u!137 &7469195697272992558 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -3344297467312677581, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
+  m_PrefabInstance: {fileID: 3904975769411251741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7565443440244021550 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6831002394773305139, guid: b44a2fb2ff694a34c9319a88d46974ea, type: 3}
   m_PrefabInstance: {fileID: 3904975769411251741}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &8255204251109112713 stripped

@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.04
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
       propertyPath: m_LocalPosition.x
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   face: {fileID: 3071834994943366983}
+  head: {fileID: 2504166268348007245}
   meshRenderers:
   - {fileID: 7126899786085842738}
   - {fileID: 5642708205278402335}
@@ -131,6 +132,7 @@ MonoBehaviour:
   bodyMat: {fileID: -2188614011940931493, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
   faceMat: {fileID: 2383019478586239886, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
   val: 150
+  upTime: 3
 --- !u!136 &6131047888379803942
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -150,13 +152,18 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8.420956
-  m_Height: 26.094124
+  m_Radius: 18.741924
+  m_Height: 39.63772
   m_Direction: 1
-  m_Center: {x: -0.066559315, y: 12.813314, z: -0}
+  m_Center: {x: 0, y: 14.906427, z: 0}
 --- !u!137 &2372242134141891147 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -5135234117282540785, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
+  m_PrefabInstance: {fileID: 1751933660603720004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2504166268348007245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4220026326221038089, guid: 2fbc792a6b2541d4485a6ba016932333, type: 3}
   m_PrefabInstance: {fileID: 1751933660603720004}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3071834994943366983 stripped

@@ -450,18 +450,19 @@ public class VideoManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        return;
-        
-        RegisterVideos();
-        RegisterEvents();
-
+        if (videoPlayers.Length != 0)
+        {
+            RegisterVideos();
+            RegisterEvents();
+        }
     }
 
     private void Start()
     {
-        return;
-        StartVideo();
+        if (videoPlayers.Length != 0)
+        {
+            StartVideo();
+        }
     }
 
     #endregion

@@ -9,14 +9,16 @@ using DG.Tweening;
 public class SetMaterials : MonoBehaviour
 {
     [SerializeField] private GameObject face;
+    [SerializeField] private Transform head;
     [SerializeField] private SkinnedMeshRenderer[] meshRenderers;
     [SerializeField] private Material bodyMat;
     [SerializeField] private Material faceMat;
-    
+
+    private float _disappearTime;
     private Material _newMaterial;
 
     private const int MaxClick = 10;
-
+    
     private int _currentClick;
     private int CurrentClick
     {
@@ -33,6 +35,7 @@ public class SetMaterials : MonoBehaviour
     
     private bool _canClick = true;
     private int _currentPosition;
+    private Texture2D _texture;
 
     private bool CanClick
     {
@@ -51,6 +54,7 @@ public class SetMaterials : MonoBehaviour
     private void OnEnable()
     {
         AudioManager.Instance.PlayOneShotAudio(AudioName.Down);
+        _disappearTime = JsonSaver.Instance.settings.disappearTime;
     }
 
     public void ChangeBody(Texture2D texture)
@@ -59,6 +63,8 @@ public class SetMaterials : MonoBehaviour
         {
             mainTexture = texture
         };
+
+        _texture = texture;
 
         for (int i = 0; i < meshRenderers.Length; i++)
         {
@@ -83,6 +89,7 @@ public class SetMaterials : MonoBehaviour
 
     public void ChangeFace(Texture2D texture)
     {
+        _texture = texture;
         face.SetActive(false);
         
         _newMaterial = new Material(faceMat)
@@ -101,7 +108,7 @@ public class SetMaterials : MonoBehaviour
         }
         
         meshRenderers[3].sharedMaterials = sharedMats;
-        
+        head.localScale *= 1.5f;
     }
 
     private void OnDestroy()
@@ -109,6 +116,7 @@ public class SetMaterials : MonoBehaviour
         if (_newMaterial)
         {
             Destroy(_newMaterial);
+            Destroy(_texture);
         }
         
         SpawnModel.Instance.AddPosition(_currentPosition);
@@ -122,7 +130,8 @@ public class SetMaterials : MonoBehaviour
     public void Clicked()
     {
         if (_canClick)
-        {
+        { 
+            _timer = 0;
             AudioManager.Instance.PlayOneShotAudio(AudioName.Touch);
             PlayScaleBounce().Forget();
             ++CurrentClick;
@@ -148,7 +157,7 @@ public class SetMaterials : MonoBehaviour
     {
         _canClick = false;
         _currentTween?.Kill(); // 기존 Tween 제거
-
+        
         await UniTask.Delay(val);
         
 		_initialScale = transform.localScale;
@@ -160,14 +169,39 @@ public class SetMaterials : MonoBehaviour
                     .SetEase(scaleDownEase).OnComplete(() =>
                     {
                         if (CurrentClick < MaxClick)
-                        {
-                          _canClick = true;
+                        { 
+                            _canClick = true;
                         }
                         else
                         {
-                          transform.DOMoveY(7,upTime).OnComplete(() => Destroy(gameObject));
+                            GoUp();
                         }
                     });
             });
+    }
+
+    private float _timer;
+    private void Update()
+    {
+        if (_isFlying) return;
+        
+        _timer += Time.deltaTime;
+
+        if (_timer >= _disappearTime)
+        {
+            GoUp();
+        }
+    }
+
+    private bool _isFlying;
+    private void GoUp()
+    {
+        if (!_isFlying)
+        {
+            _isFlying = true;
+            _canClick = false;
+            transform.DOMoveY(7,upTime).OnComplete(() => Destroy(gameObject));
+            AudioManager.Instance.PlayOneShotAudio(AudioName.Up);
+        }
     }
 }
